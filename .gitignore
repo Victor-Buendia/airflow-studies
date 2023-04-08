@@ -1,4 +1,9 @@
+# Folders
 venv/
-quickstart/constraints.txt
 quickstart/airflow/*
 !quickstart/airflow/dags/
+docker/*
+!docker/docker-compose.yaml
+# Files
+quickstart/constraints.txt
+.env
