@@ -1,2 +1,4 @@
 venv/
 quickstart/constraints.txt
+quickstart/airflow/*
+!quickstart/airflow/dags/

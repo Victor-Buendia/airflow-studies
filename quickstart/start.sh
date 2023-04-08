@@ -11,7 +11,9 @@ sleep 10
 
 # Airflow needs a home. `~/airflow` is the default, but you can put it
 # somewhere else if you prefer (optional)
-export AIRFLOW_HOME=~/airflow
+export AIRFLOW_HOME="$(pwd)"/quickstart/airflow
+mkdir ./quickstart/airflow
+mkdir ./quickstart/airflow/dags
 
 # Install Airflow using the constraints file
 AIRFLOW_VERSION=2.5.3
@@ -23,8 +25,9 @@ wget https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERS
 # For example: https://raw.githubusercontent.com/apache/airflow/constraints-2.5.3/constraints-3.7.txt
 
 # Removing lazy-object-proxy dependency
-grep -v ^lazy-object ./quickstart/constraints.txt > ./quickstart/tmp.txt
-mv ./quickstart/tmp.txt ./quickstart/constraints.txt
+#grep -v ^lazy-object ./quickstart/constraints.txt > ./quickstart/tmp.txt
+#mv ./quickstart/tmp.txt ./quickstart/constraints.txt
+
 pip3 install "apache-airflow==${AIRFLOW_VERSION}" --constraint ./quickstart/constraints.txt
 
 # Installing pandas for examples
@@ -32,6 +35,7 @@ pip3 install pandas
 
 # The Standalone command will initialise the database, make a user,
 # and start all components for you.
+airflow init db
 airflow standalone
 
 # Visit localhost:8080 in the browser and use the admin account details
