@@ -1,9 +1,14 @@
 # Folders
 venv/
+higher-education-students-performance-evaluation/
+__pycache__/
 quickstart/airflow/*
 !quickstart/airflow/dags/
 docker/*
 !docker/docker-compose.yaml
+!docker/Dockerfile
+!docker/requirements.txt
+!docker/dags
 # Files
 quickstart/constraints.txt
 .env

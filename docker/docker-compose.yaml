@@ -72,6 +72,9 @@ x-airflow-common:
     # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
     # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    # Custom Environment Variables
+    KAGGLE_USERNAME: ${KAGGLE_USERNAME}
+    KAGGLE_API_KEY: ${KAGGLE_API_KEY}
   volumes:
     &airflow-common-volumes
     - ${AIRFLOW_PROJ_DIR:-.}:/opt/airflow/
